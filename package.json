@@ -1,0 +1,26 @@
+{
+  "name": "verse_keys",
+  "version": "0.0.1",
+  "description": "Custom keybindings for Verse email web app",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "eslint addon/*.js addon/options/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willsALMANJ/verse_keys.git"
+  },
+  "keywords": [],
+  "author": "Will Shanks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/willsALMANJ/verse_keys/issues"
+  },
+  "homepage": "https://github.com/willsALMANJ/verse_keys#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0"
+  }
+}
