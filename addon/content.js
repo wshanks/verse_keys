@@ -85,3 +85,46 @@ Mousetrap.bind(
         return false
     }
 )
+
+let VerseKeys = {
+    findContent: function() {
+        let container = document.getElementsByClassName("preview-container")[0]
+        let view = container.getElementsByClassName("read-view body-open")[0]
+        let contents = view.getElementsByClassName("content")
+        for (let content of contents) {
+            if (!content.classList.contains("collapsed-content")) {
+                return content
+            }
+        }
+
+        return undefined
+
+    },
+
+    toggleMessageListContent: function() {
+        // Return true if element focused. Otherwise false.
+        let content = this.findContent()
+        if (content && content == document.activeElement) {
+            let messageList = document.getElementsByClassName("messageList")[0]
+            if (messageList) {
+                messageList.focus()
+                return true
+            }
+        } else if (content) {
+            content.focus()
+            return true
+        }
+
+        return false
+    }
+}
+
+Mousetrap.bind(
+    'm',
+    function() {
+        if (VerseKeys.toggleMessageListContent()) {
+            return false
+        }
+        return true
+    }
+)
