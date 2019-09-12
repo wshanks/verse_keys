@@ -5,7 +5,7 @@
 chrome.storage.local.get('urlmatch', (res) => {
     if (!res.urlmatch) {
         chrome.storage.local.set({
-            urlmatch: '^https?:\/\/mail\.notes\.na\.collabserv\.com\/verse'
+            urlmatch: '^https?:\/\/mail\.notes\.na\.collabserv\.com\/verse#\/inbox'
         })
     }
 })
