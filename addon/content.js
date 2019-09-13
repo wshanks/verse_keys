@@ -119,3 +119,109 @@ Mousetrap.bind(
         return true
     }
 )
+
+Mousetrap.bind(
+    "s",
+    function() {
+        let event = new MouseEvent("click", {ctrlKey: true, bubbles: true})
+        let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+        if (msg) {
+            msg.dispatchEvent(event)
+            return false
+        }
+        return true
+    }
+)
+
+Mousetrap.bind(
+    "j",
+    function() {
+        let fired = false
+        let content = VerseKeys.findContent()
+        if (content == document.activeElement) {
+            VerseKeys.scrollContent(3)
+            fired = true
+        } else {
+            let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+            if (msg && msg.nextSibling) {
+                msg.nextSibling.click()
+                fired = true
+            }
+        }
+        return !fired
+    }
+)
+
+Mousetrap.bind(
+    "k",
+    function() {
+        let fired = false
+        let content = VerseKeys.findContent()
+        if (content == document.activeElement) {
+            VerseKeys.scrollContent(-3)
+            fired = true
+        } else {
+            let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+            if (msg && msg.previousSibling) {
+                msg.previousSibling.click()
+                fired = true
+            }
+        }
+
+        return !fired
+    }
+)
+
+Mousetrap.bind(
+    "J",
+    function() {
+        let event = new MouseEvent("click", {shiftKey: true, bubbles: true})
+        let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+        if (msg && msg.nextSibling) {
+            msg.nextSibling.dispatchEvent(event)
+            return false
+        }
+        return true
+    }
+)
+
+Mousetrap.bind(
+    "K",
+    function() {
+        let event = new MouseEvent("click", {shiftKey: true, bubbles: true})
+        let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+        if (msg && msg.previousSibling) {
+            msg.previousSibling.dispatchEvent(event)
+            return false
+        }
+        return true
+    }
+)
+
+Mousetrap.bind(
+    "ctrl+j",
+    function() {
+        let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+        if (msg && msg.nextElementSibling) {
+            msg.nextSibling.focus()
+            msg.setAttribute("tabindex", "-1")
+            msg.nextSibling.setAttribute("tabindex", "0")
+            return false
+        }
+        return true
+    }
+)
+
+Mousetrap.bind(
+    "ctrl+k",
+    function() {
+        let msg = document.querySelector(".seq-msg-row[tabindex='0']")
+        if (msg && msg.previousSibling) {
+            msg.previousSibling.focus()
+            msg.setAttribute("tabindex", "-1")
+            msg.previousSibling.setAttribute("tabindex", "0")
+            return false
+        }
+        return true
+    }
+)
