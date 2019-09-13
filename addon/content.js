@@ -40,11 +40,16 @@ Mousetrap.bind(
 Mousetrap.bind(
     "#",
     function() {
-        let button = document.querySelector(
+        let buttons = document.querySelectorAll(
             ".action.pim-delete[data-is-inactive='false'], " +
             ".action.delete-all[data-is-inactive='false']"
         )
-        button.click()
+        for (let button of buttons) {
+            if (button.clientWidth == 0) {
+                continue
+            }
+            button.click()
+        }
         return false
     }
 )
