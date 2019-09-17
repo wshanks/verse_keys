@@ -57,7 +57,10 @@ Mousetrap.bind(
 Mousetrap.bind(
     "v",
     function() {
-        let button = document.querySelector(".action.pim-move-to-folder[data-is-inactive='false']")
+        let button = document.querySelector(
+            ".action.pim-move-to-folder[data-is-inactive='false'], " +
+            ".action.move-to-folder[data-is-inactive='false']"
+        )
         button.click()
         return false
     }
